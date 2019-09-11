@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "cp ./pre-push-hook .git/hooks/pre-push",
-    "package": "npm ci && npm prune --production && zip -r ./infrastructure/get-lambda.zip . -x *.git* -x *.nyc_output* -x infrastructure\\* && npm i",
-    "coverage": "nyc --check-coverage --lines 100 --functions 100 --branches 100 npm test",
+    "package": "yarn install --production && zip -r ./infrastructure/get-lambda.zip . -x *.git* -x *.nyc_output* -x infrastructure\\* -x coverage\\* && yarn",
+    "coverage": "nyc --check-coverage --lines 100 --functions 100 --branches 100 yarn test",
     "test": "mocha **/*.test.js",
-    "tdd": "npm test -- --watch"
+    "tdd": "yarn test -- --watch"
   },
   "repository": {
     "type": "git",

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 echo "Running pre-push hook..."
-npm i
-npm run coverage
-npm run package
+yarn
+yarn coverage
+yarn package
 git add infrastructure/get-lambda.zip
 git commit --amend --no-edit
