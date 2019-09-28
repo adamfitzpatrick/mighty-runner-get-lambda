@@ -6,9 +6,9 @@
   "scripts": {
     "postinstall": "cp ./pre-push-hook .git/hooks/pre-push",
     "package": "yarn install --production && zip -r ./infrastructure/get-lambda.zip . -x *.git* -x *.nyc_output* -x infrastructure\\* -x coverage\\* && yarn",
-    "coverage": "nyc --check-coverage --lines 100 --functions 100 --branches 100 yarn test",
+    "coverage": "nyc --reporter=lcov --reporter=text --check-coverage --lines 100 --functions 100 --branches 100 mocha **/*.test.js",
     "test": "mocha **/*.test.js",
-    "tdd": "yarn test -- --watch"
+    "tdd": "yarn test --watch"
   },
   "repository": {
     "type": "git",
